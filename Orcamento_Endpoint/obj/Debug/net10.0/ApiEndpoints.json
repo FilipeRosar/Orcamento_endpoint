@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "Orcamento_Endpoint.Controllers.OrcamentosController",
+    "Method": "CreateOrcamento",
+    "RelativePath": "api/Orcamentos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Orcamento_Endpoint.Entities.DTOs.CreateOrcamentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Orcamento_Endpoint.Controllers.OrcamentosController",
+    "Method": "FindById",
+    "RelativePath": "api/Orcamentos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
