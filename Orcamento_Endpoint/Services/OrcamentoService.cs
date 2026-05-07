@@ -1,4 +1,5 @@
-﻿using Orcamento_Endpoint.Entities;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Orcamento_Endpoint.Entities;
 using Orcamento_Endpoint.Entities.DTOs;
 using Orcamento_Endpoint.Interface;
 using Orcamento_Endpoint.Repository.RepositoryInterfaces;
@@ -46,9 +47,33 @@ namespace Orcamento_Endpoint.Services
             return (true, "Orçamento criado com sucesso.", orcamento.Id);
         }
 
-        public async Task<Orcamento?> ObterOrcamentoPorIdAsync(int id)
+        public async Task<OrcamentoResponseDto?> ObterOrcamentoPorIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            var orcamento = await _repository.GetByIdAsync(id);
+
+            if (orcamento == null)
+            {
+                return null;
+            }
+            return new OrcamentoResponseDto
+            {
+                Id = orcamento.Id,
+                ClienteId = orcamento.ClienteId,
+                VeiculoId = orcamento.VeiculoId,
+                Status = orcamento.Status,
+                ValorTotal = orcamento.ValorTotal,
+                DataCriacao = orcamento.DataCriacao,
+
+
+                Itens = orcamento.Itens.Select(i => new OrcamentoItemResponseDto
+                {
+                    Id = i.Id,
+                    Descricao = i.Descricao,
+                    Quantidade = i.Quantidade,
+                    ValorUnitario = i.ValorUnitario,
+                    ValorTotal = i.ValorTotal
+                }).ToList()
+            };
         }
 
         public async Task<(bool Sucesso, string Mensage)> AtualizarStatusAsync(int id, string novoStatus)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XBh0egZX3VU=",
+  "dgSpecHash": "SHsJ5wjoV20=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Windows 11\\Desktop\\Orçamento_test\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
+  "projectFilePath": "C:\\Users\\Windows 11\\Desktop\\Faculdade\\Orcamento_endpoint\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows 11\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -116,6 +116,7 @@
     "C:\\Users\\Windows 11\\.nuget\\packages\\nuget.projectmodel\\6.12.1\\nuget.projectmodel.6.12.1.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\nuget.protocol\\6.12.1\\nuget.protocol.6.12.1.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\nuget.versioning\\6.12.1\\nuget.versioning.6.12.1.nupkg.sha512",
+    "C:\\Users\\Windows 11\\.nuget\\packages\\questpdf\\2026.2.4\\questpdf.2026.2.4.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\swashbuckle.aspnetcore\\10.1.7\\swashbuckle.aspnetcore.10.1.7.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.1.7\\swashbuckle.aspnetcore.swagger.10.1.7.nupkg.sha512",
     "C:\\Users\\Windows 11\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.7\\swashbuckle.aspnetcore.swaggergen.10.1.7.nupkg.sha512",
@@ -141,9 +142,9 @@
       "code": "NU1901",
       "level": "Warning",
       "message": "O pacote 'NuGet.Packaging' 6.12.1 tem uma baixa vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "C:\\Users\\Windows 11\\Desktop\\Orçamento_test\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
+      "projectPath": "C:\\Users\\Windows 11\\Desktop\\Faculdade\\Orcamento_endpoint\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Windows 11\\Desktop\\Orçamento_test\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
+      "filePath": "C:\\Users\\Windows 11\\Desktop\\Faculdade\\Orcamento_endpoint\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
       "libraryId": "NuGet.Packaging",
       "targetGraphs": [
         "net10.0"
@@ -153,9 +154,9 @@
       "code": "NU1901",
       "level": "Warning",
       "message": "O pacote 'NuGet.Protocol' 6.12.1 tem uma baixa vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "C:\\Users\\Windows 11\\Desktop\\Orçamento_test\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
+      "projectPath": "C:\\Users\\Windows 11\\Desktop\\Faculdade\\Orcamento_endpoint\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Windows 11\\Desktop\\Orçamento_test\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
+      "filePath": "C:\\Users\\Windows 11\\Desktop\\Faculdade\\Orcamento_endpoint\\Orcamento_Endpoint\\Orcamento_Endpoint.csproj",
       "libraryId": "NuGet.Protocol",
       "targetGraphs": [
         "net10.0"

@@ -10,10 +10,11 @@ namespace Orcamento_Endpoint.Controllers
     public class OrcamentosController : ControllerBase
     {
         private readonly IOrcamentoService _service;
-
-        public OrcamentosController(IOrcamentoService service)
+        private readonly IPdfService _pdfService;
+        public OrcamentosController(IOrcamentoService service, IPdfService pdfService)
         {
             _service = service;
+            _pdfService = pdfService;
         }
 
 
@@ -38,6 +39,21 @@ namespace Orcamento_Endpoint.Controllers
                 return NotFound();
             }
             return Ok(orcamento);
+        }
+        [HttpGet("{id}/pdf")]
+        public async Task<IActionResult> GetPdf(int id)
+        {
+            var orcamento = await _service.ObterOrcamentoPorIdAsync(id);
+            if (orcamento == null)
+            {
+                return NotFound();
+            }
+            var pdf = _pdfService.GerarOrcamentoPdf(orcamento);
+
+            return File(
+                pdf,
+                "application/pdf",
+                $"orcamento_{id}.pdf");
         }
 
         [HttpPut("{id}/status")]

@@ -13,7 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
 builder.Services.AddScoped<IOrcamentoService, OrcamentoService>();
-
+builder.Services.AddScoped<IPdfService, PDFService>();
 builder.Services.AddOpenApi();
 
 builder.Services.AddEndpointsApiExplorer();
