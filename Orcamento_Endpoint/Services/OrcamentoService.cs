@@ -19,32 +19,45 @@ namespace Orcamento_Endpoint.Services
             {
                 return (false, "O orçamento deve conter pelo menos um item.", 0);
             }
-            var orcamento = new Orcamento
+            
+            foreach (var item in dto.Itens)
             {
-                ClienteId = dto.ClienteId,
-                VeiculoId = dto.VeiculoId,
-                Status = "Aberto",
-                DataCriacao = DateTime.UtcNow
-            };
-            decimal total = 0;
+                if (item.Quantidade <= 0)
+                {
+                    return (false, "A quantidade deve ser maior que zero", 0);
+                }
+                if (item.ValorUnitario <= 0)
+                {
+                    return (false, "O valor unitário deve ser maior que zero", 0);
+                }
 
-            foreach (var itemDto in dto.Itens)
+            }
+            var itens = dto.Itens
+                .Select(itemDto =>
             {
                 var valorTotal = itemDto.Quantidade * itemDto.ValorUnitario;
 
-                orcamento.Itens.Add(new OrcamentoItem
+                return new OrcamentoItem
                 {
                     Descricao = itemDto.Descricao,
                     Quantidade = itemDto.Quantidade,
                     ValorUnitario = itemDto.ValorUnitario,
                     ValorTotal = valorTotal
-                });
-                total += valorTotal;
-            }
-            orcamento.ValorTotal = total;
-            await _repository.AddAsync(orcamento);
+                };
+            }).ToList();
+            var valorTotalOrcamento = itens.Sum(i => i.ValorTotal);
 
-            return (true, "Orçamento criado com sucesso.", orcamento.Id);
+            var orcamento = new Orcamento
+            {
+                ClienteId = dto.ClienteId,
+                VeiculoId = dto.VeiculoId,
+                Status = "Aberto",
+                DataCriacao = DateTime.UtcNow,
+                ValorTotal = valorTotalOrcamento,
+                Itens = itens
+            };
+            await _repository.AddAsync(orcamento);
+            return (true, "Orçamento criado com sucesso", orcamento.Id);
         }
 
         public async Task<OrcamentoResponseDto?> ObterOrcamentoPorIdAsync(int id)
