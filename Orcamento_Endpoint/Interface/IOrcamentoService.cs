@@ -7,5 +7,6 @@ namespace Orcamento_Endpoint.Interface
     {
         Task<(bool Sucesso, string Mensage, int id)> CriarOrcamentoAsync(CreateOrcamentoDto dto);
         Task<Orcamento?> ObterOrcamentoPorIdAsync(int id);
+        Task<(bool Sucesso, string Mensage)> AtualizarStatusAsync(int id, string novoStatus);
     }
 }

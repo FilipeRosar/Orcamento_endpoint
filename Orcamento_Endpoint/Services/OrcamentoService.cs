@@ -50,5 +50,26 @@ namespace Orcamento_Endpoint.Services
         {
             return await _repository.GetByIdAsync(id);
         }
+
+        public async Task<(bool Sucesso, string Mensage)> AtualizarStatusAsync(int id, string novoStatus)
+        {
+            var statusesValidos = new[] { "Aberto", "Aceito", "Rejeitado", "Cancelado" };
+            
+            if (!statusesValidos.Contains(novoStatus))
+            {
+                return (false, "Status inválido. Use: Aberto, Aceito, Rejeitado ou Cancelado");
+            }
+
+            var orcamento = await _repository.GetByIdAsync(id);
+            if (orcamento == null)
+            {
+                return (false, "Orçamento não encontrado.");
+            }
+
+            orcamento.Status = novoStatus;
+            await _repository.UpdateAsync(orcamento);
+
+            return (true, $"Status atualizado para {novoStatus} com sucesso.");
+        }
     }
 }

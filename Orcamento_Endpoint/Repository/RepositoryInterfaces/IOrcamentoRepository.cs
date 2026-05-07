@@ -6,5 +6,6 @@ namespace Orcamento_Endpoint.Repository.RepositoryInterfaces
     {
         Task AddAsync(Orcamento orcamento);
         Task<Orcamento?> GetByIdAsync(int id);
+        Task UpdateAsync(Orcamento orcamento);
     }
 }

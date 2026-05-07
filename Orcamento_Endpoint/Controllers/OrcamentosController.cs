@@ -39,5 +39,17 @@ namespace Orcamento_Endpoint.Controllers
             }
             return Ok(orcamento);
         }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateStatusDto dto)
+        {
+            var result = await _service.AtualizarStatusAsync(id, dto.NovoStatus);
+            
+            if (!result.Sucesso)
+            {
+                return BadRequest(result.Mensage);
+            }
+            return Ok(new { mensagem = result.Mensage });
+        }
     }
 }

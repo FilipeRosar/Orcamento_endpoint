@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Orcamento_Endpoint.csproj" />
+  <Project Path="..\Orcamento_Endpoint.Tests\Orcamento_Endpoint.Tests.csproj" />
+</Solution>
+

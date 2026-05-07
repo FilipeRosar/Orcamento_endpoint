@@ -26,5 +26,11 @@ namespace Orcamento_Endpoint.Repository
                 .Include(o => o.Itens)
                 .FirstOrDefaultAsync(o => o.Id == id);
         }
+
+        public async Task UpdateAsync(Orcamento orcamento)
+        {
+            _context.Orcamentos.Update(orcamento);
+            await _context.SaveChangesAsync();
+        }
     }
 }
